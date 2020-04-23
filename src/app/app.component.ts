@@ -11,6 +11,8 @@ export class AppComponent implements OnInit{
   myForm: FormGroup;
   submitted = false;
   loading = false; 
+
+  plans = [];
   constructor(public planService: PlanService, public fb: FormBuilder) {
 
   }
@@ -19,7 +21,7 @@ export class AppComponent implements OnInit{
     this.reactiveForm();
     this.planService.getPlans()
       .subscribe(res => {
-        console.log(res);
+        this.plans = res;
       })
   }
   reactiveForm() {
@@ -35,10 +37,17 @@ export class AppComponent implements OnInit{
   }
 
   submitForm() {
-    console.log(this.myForm.value);
+    if (this.myForm.invalid) {
+      return;
+    }
+    this.submitted = true;
+    this.loading = true;
     this.planService.createPlan(this.myForm.value)
       .subscribe(res => {
-        console.log(res);
+        this.loading = false;
+        this.submitted = false;
+        this.plans.push(res);
+        this.reactiveForm();
       });
   }
 }

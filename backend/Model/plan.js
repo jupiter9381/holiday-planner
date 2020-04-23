@@ -4,7 +4,7 @@ const planSchema = mongoose.Schema({
     country: String,
     whyGo: String,
     wheretoGo: String,
-    timeinDays: Number,
+    timeInDays: Number,
     levelofDifficulty: String,
     entraceFees: String
 });

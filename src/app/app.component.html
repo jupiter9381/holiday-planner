@@ -22,58 +22,98 @@
       <p class="lead">Select your dream destination from the countries below. Pack up and go!.</p>
     </div>
   </div>
-  <div class="row">
-    
-      <div class="col-md-4 text-left">
-        <form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
-          <div class="form-group">
-            <select class="form-control" formControlName="area" >
-              <option hidden value=""  selected>Select area</option>
-              <option value="0">Africa</option>
-              <option value="1">Asia</option>
-              <option value="2">South America</option>
-              <option value="3">North America</option>
-              <option value="4">Europe</option>
-              <option value="5">Australia and Oceania</option>
-              <option value="6">Antarctica</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <input class="form-control" formControlName="country" placeholder="Country">
-          </div>
-          <div class="form-group">
-            <input class="form-control" formControlName="whyGo" placeholder="Why go">
-          </div>
-          <div class="form-group">
-            <input class="form-control" formControlName="wheretoGo" placeholder="Where to go">
-          </div>
-          <div class="form-group">
-            <select class="form-control" formControlName="timeInDays" placeholder="timeinDays">
-              <option value="">Time In Days</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <select class="form-control" formControlName="levelofDifficulty" placeholder="levelofDifficulty">
-              <option value="">Level of Difficulty</option>
-              <option value="Low">Low</option>
-              <option value="Medium">Medium</option>
-              <option value="High">High</option>
-					  </select>
-          </div>
-          <div class="form-group">
-            <input class="form-control" type="number" formControlName="entraceFees" placeholder="Entrace Fees">
-          </div>
-          <div class="form-group">
-            <button class="btn btn-primary btn-block" type="submit">Add</button>
-          </div>
-        </form>
+  <form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <select class="form-control" formControlName="area" >
+            <option hidden value=""  selected>Select area</option>
+            <option value="0">Africa</option>
+            <option value="1">Asia</option>
+            <option value="2">South America</option>
+            <option value="3">North America</option>
+            <option value="4">Europe</option>
+            <option value="5">Australia and Oceania</option>
+            <option value="6">Antarctica</option>
+          </select>
+        </div>
       </div>
-    
+      <div class="col-md-3">
+        <div class="form-group">
+          <input class="form-control" formControlName="country" placeholder="Country">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <input class="form-control" formControlName="whyGo" placeholder="Why go">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <input class="form-control" formControlName="wheretoGo" placeholder="Where to go">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <select class="form-control" formControlName="timeInDays" placeholder="timeinDays">
+            <option value="">Time In Days</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <select class="form-control" formControlName="levelofDifficulty" placeholder="levelofDifficulty">
+            <option value="">Level of Difficulty</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <input class="form-control" type="number" formControlName="entraceFees" placeholder="Entrace Fees">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" type="submit">Add</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Area</th>
+            <th>Country</th>
+            <th>Why go</th>
+            <th>Where to go</th>
+            <th>Time In Days</th>
+            <th>Level of Difficulty</th>
+            <th>EntraceFees</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let plan of plans">
+            <td>{{plan.area}}</td>
+            <td>{{plan.country}}</td>
+            <td>{{plan.whyGo}}</td>
+            <td>{{plan.wheretoGo}}</td>
+            <td>{{plan.timeInDays}}</td>
+            <td>{{plan.levelofDifficulty}}</td>
+            <td>{{plan.entraceFees}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

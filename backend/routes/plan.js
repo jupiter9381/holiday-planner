@@ -19,7 +19,13 @@ router.get('/plan',(req,res)=>{
 
 router.post('/create',(req,res)=>{
 	const plan = new Plan({
-        area: req.body.area
+        area: req.body.area,
+        country: req.body.country,
+        whyGo: req.body.whyGo,
+        wheretoGo: req.body.wheretoGo,
+        timeInDays: req.body.timeInDays,
+        levelofDifficulty: req.body.levelofDifficulty,
+        entraceFees: req.body.entraceFees
     }).save((err, response) => {
         if (err) res.status(400).send(err);
         res.status(200).send(response)
