@@ -8,8 +8,8 @@ import {map} from 'rxjs/operators';
 })
 export class PlanService {
 
-  private apiUrl = '/api/';
-  //private apiUrl = 'http://localhost:8080/api/';
+  //private apiUrl = '/api/';
+  private apiUrl = 'http://localhost:8080/api/';
   constructor(
     private http: HttpClient,
   ) { }
