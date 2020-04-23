@@ -8,8 +8,18 @@ import {map} from 'rxjs/operators';
 })
 export class PlanService {
 
-  //private apiUrl = '/api/';
-  private apiUrl = 'http://localhost:8080/api/';
+  private apiUrl = '/api/';
+  //private apiUrl = 'http://localhost:8080/api/';
+
+  areas = [
+    {value: 0, name: 'Africa'},
+    {value: 1, name: 'Asia'},
+    {value: 2, name: 'South America'},
+    {value: 3, name: 'North America'},
+    {value: 4, name: 'Europe'},
+    {value: 5, name: 'Australia and Oceania'},
+    {value: 6, name: 'Antarctica'},
+  ];
   constructor(
     private http: HttpClient,
   ) { }
@@ -21,6 +31,22 @@ export class PlanService {
   }
   createPlan(data) {
     return this.http.post<any>(this.apiUrl + 'create', data).pipe(map(plan => {
+      if (plan) {
+        return plan;
+      }
+
+    }))
+  }
+  updatePlan(data, id) {
+    return this.http.post<any>(this.apiUrl + 'update', {data: data, id: id}).pipe(map(plan => {
+      if (plan) {
+        return plan;
+      }
+
+    }))
+  }
+  deletePlan(id) {
+    return this.http.post<any>(this.apiUrl + 'delete', {id: id}).pipe(map(plan => {
       if (plan) {
         return plan;
       }

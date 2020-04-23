@@ -83,11 +83,29 @@
       </div>
       <div class="col-md-3">
         <div class="form-group">
-          <button class="btn btn-primary btn-block" type="submit">Add</button>
+          <button class="btn btn-primary btn-block" type="submit" *ngIf="!selectedPlan">Add</button>
+          <button class="btn btn-primary btn-block" type="button" *ngIf="selectedPlan" (click)="updatePlan()">Update</button>
         </div>
       </div>
     </div>
   </form>
+  <hr>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        <select class="form-control" [(ngModel)]="area" (change)="changeArea(area)">
+          <option value="" >All</option>
+          <option value="0">Africa</option>
+          <option value="1">Asia</option>
+          <option value="2">South America</option>
+          <option value="3">North America</option>
+          <option value="4">Europe</option>
+          <option value="5">Australia and Oceania</option>
+          <option value="6">Antarctica</option>
+        </select>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12">
       <table class="table table-hover table-bordered">
@@ -104,8 +122,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let plan of plans">
-            <td>{{plan.area}}</td>
+          <tr *ngFor="let plan of plans; let i = index">
+            <td>{{getArea(plan.area)}}</td>
             <td>{{plan.country}}</td>
             <td>{{plan.whyGo}}</td>
             <td>{{plan.wheretoGo}}</td>
@@ -113,8 +131,8 @@
             <td>{{plan.levelofDifficulty}}</td>
             <td>{{plan.entraceFees}}</td>
             <td>
-              <button class="btn btn-primary mr-1"><i class="fa fa-edit"></i></button>
-              <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-primary mr-1" (click)="editPlan(i)"><i class="fa fa-edit"></i></button>
+              <button class="btn btn-danger" (click)="deletePlan(i)"><i class="fa fa-trash"></i></button>
             </td>
           </tr>
         </tbody>
