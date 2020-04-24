@@ -27,14 +27,8 @@
       <div class="col-md-3">
         <div class="form-group">
           <select class="form-control" formControlName="area" >
-            <option hidden value=""  selected>Select area</option>
-            <option value="0">Africa</option>
-            <option value="1">Asia</option>
-            <option value="2">South America</option>
-            <option value="3">North America</option>
-            <option value="4">Europe</option>
-            <option value="5">Australia and Oceania</option>
-            <option value="6">Antarctica</option>
+            <option hidden value="" >Select area</option>
+            <option *ngFor="let area of planService.areas" [value]="area.value">{{area.name}}</option>
           </select>
         </div>
       </div>
@@ -69,10 +63,8 @@
       <div class="col-md-3">
         <div class="form-group">
           <select class="form-control" formControlName="levelofDifficulty" placeholder="levelofDifficulty">
-            <option value="">Level of Difficulty</option>
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
+            <option value="" hidden>Level of Difficulty</option>
+            <option *ngFor="let obj of planService.difficulties" [value]="obj.value">{{obj.name}}</option>
           </select>
         </div>
       </div>

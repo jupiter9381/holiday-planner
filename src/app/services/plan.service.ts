@@ -20,6 +20,11 @@ export class PlanService {
     {value: 5, name: 'Australia and Oceania'},
     {value: 6, name: 'Antarctica'},
   ];
+  difficulties = [
+    {value: "Low", name: 'Low'},
+    {value: "Medium", name: 'Medium'},
+    {value: "High", name: 'High'}
+  ];
   constructor(
     private http: HttpClient,
   ) { }
