@@ -37,7 +37,8 @@ export class AppComponent implements OnInit{
       wheretoGo: [''],
       timeInDays: [''],
       levelofDifficulty: [''],
-      entraceFees: ['']
+      entraceFees: [''],
+      image: ['']
     })
   }
 

@@ -6,7 +6,8 @@ const planSchema = mongoose.Schema({
     wheretoGo: String,
     timeInDays: Number,
     levelofDifficulty: String,
-    entraceFees: String
+    entraceFees: String,
+    image: String,
 });
 
 const Plan = mongoose.model('Plan', planSchema);

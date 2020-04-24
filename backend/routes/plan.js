@@ -25,7 +25,8 @@ router.post('/create',(req,res)=>{
         wheretoGo: req.body.wheretoGo,
         timeInDays: req.body.timeInDays,
         levelofDifficulty: req.body.levelofDifficulty,
-        entraceFees: req.body.entraceFees
+        entraceFees: req.body.entraceFees,
+        image: req.body.image
     }).save((err, response) => {
         if (err) res.status(400).send(err);
         res.status(200).send(response)
@@ -39,7 +40,8 @@ router.post('/update',(req,res)=>{
         wheretoGo: req.body.data.wheretoGo,
         timeInDays: req.body.data.timeInDays,
         levelofDifficulty: req.body.data.levelofDifficulty,
-        entraceFees: req.body.data.entraceFees
+        entraceFees: req.body.data.entraceFees,
+        image: req.body.data.image
     };
     Plan.findOneAndUpdate({_id: req.body.id}, update, {new: true}, (err, result) => {
     	if (err) res.status(400).send(err);
